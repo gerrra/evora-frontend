@@ -1,0 +1,50 @@
+{
+  "name": "evora-frontend",
+  "version": "1.0.0",
+  "description": "Evora Portal Frontend - Next.js 14 with TypeScript",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "test": "vitest --run"
+  },
+  "keywords": [
+    "nextjs",
+    "react",
+    "typescript",
+    "frontend"
+  ],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.15.1",
+  "dependencies": {
+    "@testing-library/jest-dom": "^6.8.0",
+    "@testing-library/react": "^16.3.0",
+    "@types/node": "^24.3.1",
+    "@types/react": "^19.1.12",
+    "@types/react-dom": "^19.1.9",
+    "@typescript-eslint/eslint-plugin": "^8.42.0",
+    "@typescript-eslint/parser": "^8.42.0",
+    "eslint": "^9.34.0",
+    "jsdom": "^26.1.0",
+    "next": "^15.5.2",
+    "prettier": "^3.6.2",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.34.0",
+    "@tailwindcss/postcss": "^4.1.12",
+    "@vitejs/plugin-react": "^5.0.2",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.12",
+    "vite": "^7.1.4"
+  }
+}
