@@ -3,7 +3,6 @@ on: [push, pull_request]
 
 jobs:
   test:
-    name: test (lts/*)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -13,8 +12,10 @@ jobs:
           node-version: 'lts/*'
           cache: 'pnpm'
 
-      - name: Enable corepack (pnpm)
-        run: corepack enable
+      - name: Enable corepack
+        run: |
+          corepack enable
+          corepack prepare pnpm@latest --activate
 
       - name: Install deps
         run: pnpm install --frozen-lockfile=false
