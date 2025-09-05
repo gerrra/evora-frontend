@@ -7,15 +7,29 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          node-version: 'lts/*'
-          cache: 'pnpm'
+          node-version: 'lts/*'   # без cache:'pnpm'
 
-      - name: Enable corepack
-        run: |
-          corepack enable
-          corepack prepare pnpm@latest --activate
+      # Устанавливаем pnpm надёжно
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: false
+
+      # Кэшируем pnpm store вручную
+      - name: Get pnpm store path
+        run: echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - name: Cache pnpm store
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: pnpm-store-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            pnpm-store-
 
       - name: Install deps
         run: pnpm install --frozen-lockfile=false
