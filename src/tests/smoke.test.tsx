@@ -2,10 +2,10 @@ import { render, screen } from '@testing-library/react';
 import { expect, test } from 'vitest';
 import HomePage from '@/app/page';
 
-test('renders Evora Portal heading', () => {
+test('renders Welcome to Evora Portal heading', () => {
   render(<HomePage />);
 
-  const heading = screen.getByText('Evora Portal');
+  const heading = screen.getByText('Welcome to Evora Portal');
   expect(heading).toBeInTheDocument();
 });
 
